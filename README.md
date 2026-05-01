@@ -42,7 +42,7 @@ You don't write any of that logic. qlaud enforces the cap; the widget reads the 
 
 **Cloudflare** (recommended):
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FqlaudAI%2Fai-support-widget)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https%3A%2F%2Fgithub.com%2FqlaudAI%2Fai-support-widget%2Ftree%2Fmain%2Fpackages%2Fserver-cloudflare)
 
 **Vercel**:
 
