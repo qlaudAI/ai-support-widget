@@ -5,65 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Acme Docs — Demo Site for ai-support-widget</title>
     <style>
+      :root {
+        --fg: #0a0a0a;
+        --fg-muted: #6b7280;
+        --bg: #ffffff;
+        --bg-muted: #fafafa;
+        --border: rgba(0, 0, 0, 0.08);
+        --accent: #dc2626;
+      }
       * { box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
       body {
         margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
-        color: #1a1a1a;
-        background: #fafafa;
+        font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+        font-feature-settings: "rlig" 1, "calt" 1;
+        color: var(--fg);
+        background: var(--bg);
+        line-height: 1.65;
+        letter-spacing: -0.005em;
       }
       header {
-        padding: 18px 32px;
-        border-bottom: 1px solid #e5e5e5;
-        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 14px 32px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: saturate(180%) blur(12px);
+        -webkit-backdrop-filter: saturate(180%) blur(12px);
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
-      header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+      header .logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, var(--accent), #7c1212);
+        box-shadow: 0 1px 2px rgba(0,0,0,.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      header .badge {
+        margin-left: auto;
+        font-size: 11px;
+        color: var(--fg-muted);
+        padding: 4px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+      }
       main {
-        max-width: 740px;
-        margin: 48px auto;
-        padding: 0 24px;
-        line-height: 1.7;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 32px 120px;
       }
-      h2 { margin-top: 40px; }
+      .eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent);
+        background: color-mix(in srgb, var(--accent) 10%, transparent);
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      h1.hero {
+        font-size: 44px;
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.025em;
+        margin: 0 0 18px;
+        text-wrap: balance;
+      }
+      .lede {
+        font-size: 18px;
+        color: var(--fg-muted);
+        margin: 0 0 40px;
+        text-wrap: balance;
+      }
+      h2 {
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        margin: 56px 0 12px;
+      }
+      p { margin: 0 0 16px; }
+      em { color: var(--fg); font-style: normal; font-weight: 500; }
       code {
-        background: #f0f0f0;
+        background: var(--bg-muted);
         padding: 2px 6px;
         border-radius: 4px;
-        font-size: 0.9em;
+        font-size: 0.88em;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        border: 1px solid var(--border);
       }
       pre {
-        background: #1a1a1a;
-        color: #f0f0f0;
-        padding: 16px;
-        border-radius: 8px;
+        background: #0a0a0a;
+        color: #f5f5f5;
+        padding: 18px 20px;
+        border-radius: 12px;
         overflow-x: auto;
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
       }
-      pre code { background: transparent; padding: 0; color: inherit; }
+      pre code { background: transparent; padding: 0; border: 0; color: inherit; font-size: inherit; }
       .note {
-        background: #fff;
-        border: 1px solid #e5e5e5;
-        border-radius: 8px;
+        background: var(--bg-muted);
+        border: 1px solid var(--border);
+        border-radius: 12px;
         padding: 16px 20px;
-        margin: 24px 0;
+        margin: 28px 0;
         font-size: 14px;
+        color: var(--fg-muted);
       }
+      .note strong { color: var(--fg); }
+      .arrow {
+        margin-top: 56px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent);
+        border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+        border-radius: 14px;
+        font-size: 14px;
+        color: var(--fg);
+      }
+      .arrow svg { color: var(--accent); flex-shrink: 0; }
     </style>
   </head>
   <body>
     <header>
+      <div class="logo"></div>
       <h1>Acme Docs</h1>
+      <span class="badge">demo</span>
     </header>
     <main>
-      <h1>ai-support-widget — Demo</h1>
-      <p>
-        This is a stand-in for "your docs site." Click the chat bubble in
-        the bottom-right corner. It's powered by
-        <a href="https://qlaud.ai">qlaud</a>, with each visitor getting
-        their own per-end-user spending cap so the bot can't be abused
-        into running up your bill.
+      <span class="eyebrow">ai-support-widget</span>
+      <h1 class="hero">Drop streaming chat onto any site.</h1>
+      <p class="lede">
+        One <code>&lt;script&gt;</code> tag, ~5KB gzipped, Shadow-DOM isolated.
+        Powered by <a href="https://qlaud.ai">qlaud</a> with a hard
+        per-visitor spending cap so anonymous traffic can&rsquo;t blow up your bill.
       </p>
 
-      <h2>Getting Started</h2>
+      <div class="arrow">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <path d="M5 12h14M13 18l6-6-6-6"/>
+        </svg>
+        <span>Click the chat bubble in the bottom-right corner to try it.</span>
+      </div>
+
+      <h2>Getting started</h2>
       <p>
         Pretend this section talks about installing Acme. Try asking the
         widget: <em>&ldquo;How do I install Acme?&rdquo;</em>
@@ -72,8 +173,8 @@
 
       <h2>Configuration</h2>
       <p>
-        Acme reads its config from <code>acme.config.js</code>. The
-        widget knows about this — try asking it
+        Acme reads its config from <code>acme.config.js</code>. The widget
+        knows about this — try asking it
         <em>&ldquo;Where do I set the API key?&rdquo;</em>
       </p>
 
@@ -81,7 +182,7 @@
       <p>The host page only adds one line:</p>
       <pre><code>&lt;script
   src="/widget.iife.js"
-  data-server="https://your-worker.workers.dev"
+  data-server="https://your-worker.workers.dev/chat"
   data-title="Acme Support"
   data-greeting="Hi! I'm the Acme bot. Ask me anything."
   data-accent="#dc2626"
@@ -89,9 +190,9 @@
 
       <div class="note">
         <strong>Note:</strong> in this dev setup, the widget points at
-        <code>http://localhost:8787</code> (the worker run via
-        <code>wrangler dev</code>). In production you'd replace it with
-        your deployed worker URL.
+        <code>http://localhost:8787/chat</code> (the worker run via
+        <code>wrangler dev</code>). In production replace it with your
+        deployed worker URL.
       </div>
     </main>
 
