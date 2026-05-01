@@ -1,0 +1,21 @@
+{
+  "name": "ai-support-widget",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Embeddable AI chat widget powered by qlaud — drop a single <script> tag to add streaming chat to any site.",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "dev:widget": "pnpm --filter @ai-support/widget dev",
+    "dev:server": "pnpm --filter @ai-support/server dev",
+    "build:widget": "pnpm --filter @ai-support/widget build",
+    "build:server": "pnpm --filter @ai-support/server build",
+    "build": "pnpm -r build"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=18"
+  }
+}

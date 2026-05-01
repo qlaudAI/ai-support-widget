@@ -1,0 +1,4 @@
+# Copy to `.dev.vars` for local development with `wrangler dev`.
+# Never commit `.dev.vars` — it's in .gitignore.
+
+QLAUD_MASTER_KEY=qlk_live_replace_me

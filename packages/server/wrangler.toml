@@ -1,0 +1,26 @@
+name = "ai-support-widget-server"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["nodejs_compat"]
+
+# KV holds per-end-user qlaud keys, so we don't re-mint on every request.
+# Create with: wrangler kv:namespace create END_USER_KEYS
+[[kv_namespaces]]
+binding = "END_USER_KEYS"
+id = "REPLACE_WITH_YOUR_KV_ID"
+
+# CORS allow-list. Comma-separated origins, or "*" for any.
+[vars]
+ALLOWED_ORIGINS = "*"
+
+# Per-end-user spend cap (in USD). The widget can't override this.
+END_USER_CAP_USD = "1"
+
+# Default model. Override in production for higher quality.
+DEFAULT_MODEL = "claude-haiku-4-5"
+
+# Optional system prompt — set to give the bot a persona/scope.
+SYSTEM_PROMPT = "You are a helpful assistant embedded on a website. Keep answers concise and friendly."
+
+# Required secrets (set via `wrangler secret put`):
+#   QLAUD_MASTER_KEY  — master-scope qlaud key, mints per-end-user keys

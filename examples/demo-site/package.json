@@ -1,0 +1,12 @@
+{
+  "name": "@ai-support/demo-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

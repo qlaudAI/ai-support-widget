@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acme Docs — Demo Site for ai-support-widget</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+        color: #1a1a1a;
+        background: #fafafa;
+      }
+      header {
+        padding: 18px 32px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+      }
+      header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+      main {
+        max-width: 740px;
+        margin: 48px auto;
+        padding: 0 24px;
+        line-height: 1.7;
+      }
+      h2 { margin-top: 40px; }
+      code {
+        background: #f0f0f0;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      pre {
+        background: #1a1a1a;
+        color: #f0f0f0;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      pre code { background: transparent; padding: 0; color: inherit; }
+      .note {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 16px 20px;
+        margin: 24px 0;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Acme Docs</h1>
+    </header>
+    <main>
+      <h1>ai-support-widget — Demo</h1>
+      <p>
+        This is a stand-in for "your docs site." Click the chat bubble in
+        the bottom-right corner. It's powered by
+        <a href="https://qlaud.ai">qlaud</a>, with each visitor getting
+        their own per-end-user spending cap so the bot can't be abused
+        into running up your bill.
+      </p>
+
+      <h2>Getting Started</h2>
+      <p>
+        Pretend this section talks about installing Acme. Try asking the
+        widget: <em>&ldquo;How do I install Acme?&rdquo;</em>
+      </p>
+      <pre><code>npm install acme</code></pre>
+
+      <h2>Configuration</h2>
+      <p>
+        Acme reads its config from <code>acme.config.js</code>. The
+        widget knows about this — try asking it
+        <em>&ldquo;Where do I set the API key?&rdquo;</em>
+      </p>
+
+      <h2>How the widget got here</h2>
+      <p>The host page only adds one line:</p>
+      <pre><code>&lt;script
+  src="/widget.iife.js"
+  data-server="https://your-worker.workers.dev"
+  data-title="Acme Support"
+  data-greeting="Hi! I'm the Acme bot. Ask me anything."
+  data-accent="#dc2626"
+  defer&gt;&lt;/script&gt;</code></pre>
+
+      <div class="note">
+        <strong>Note:</strong> in this dev setup, the widget points at
+        <code>http://localhost:8787</code> (the worker run via
+        <code>wrangler dev</code>). In production you'd replace it with
+        your deployed worker URL.
+      </div>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
