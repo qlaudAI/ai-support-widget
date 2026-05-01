@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "dev:widget": "pnpm --filter @ai-support/widget dev",
-    "dev:server": "pnpm --filter @ai-support/server dev",
+    "dev:server:cloudflare": "pnpm --filter @ai-support/server-cloudflare dev",
+    "dev:server:vercel": "pnpm --filter @ai-support/server-vercel dev",
     "build:widget": "pnpm --filter @ai-support/widget build",
-    "build:server": "pnpm --filter @ai-support/server build",
     "build": "pnpm -r build"
   },
   "packageManager": "pnpm@9.12.0",

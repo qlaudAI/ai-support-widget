@@ -2,10 +2,14 @@
 // key — the widget is fully public.
 //
 // Wire format with the server:
-//   POST {server}/chat   { endUserId, threadId, message }
+//   POST {server}   { endUserId, threadId, message }
 //   → SSE stream from qlaud (forwarded as-is)
 //   → x-thread-id header on first response
 //   → 402 when end-user has hit a per-end-user cap
+//
+// `server` is the full chat endpoint URL — e.g. for the Cloudflare
+// variant: "https://your-worker.workers.dev/chat", for the Vercel
+// variant: "https://your-app.vercel.app/api/chat".
 
 type SendOpts = {
   server: string;
@@ -24,7 +28,7 @@ type SendResult = {
 export async function sendMessage(opts: SendOpts): Promise<SendResult> {
   let res: Response;
   try {
-    res = await fetch(`${opts.server.replace(/\/+$/, "")}/chat`, {
+    res = await fetch(opts.server, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({

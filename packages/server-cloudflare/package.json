@@ -1,5 +1,5 @@
 {
-  "name": "@ai-support/server",
+  "name": "@ai-support/server-cloudflare",
   "version": "0.1.0",
   "description": "Widget backend — Cloudflare Worker that mints qlaud per-end-user keys and proxies streaming chat.",
   "type": "module",

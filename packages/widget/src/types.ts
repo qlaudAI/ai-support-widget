@@ -1,5 +1,8 @@
 export type InitOptions = {
-  /** URL of your widget server (the one that holds the qlaud key). */
+  /** Full URL of your widget chat endpoint (the one that holds the
+   *  qlaud key). For the Cloudflare variant:
+   *  `https://<worker>.workers.dev/chat`. For the Vercel variant:
+   *  `https://<app>.vercel.app/api/chat`. */
   server: string;
   /** Stable identifier for the end user. If omitted, a per-browser
    *  anonymous id is generated and stored in localStorage. */
